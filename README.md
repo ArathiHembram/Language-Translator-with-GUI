@@ -8,9 +8,9 @@ https://github.com/ArathiHembram/Language-Translator-with-GUI.git
 
 # Dependencies
 Now you would need to Install all the Dependecies to begin running
-#sudo apt-get install python3-tk
-#pip install googletrans==4.0.0-rc1
-#pip install mysql-connector-python
+# sudo apt-get install python3-tk
+# pip install googletrans==4.0.0-rc1
+# pip install mysql-connector-python
 
 # If you have mysql installed and setup
 Once everything is cleary installed , you're now ready to run the above examples
