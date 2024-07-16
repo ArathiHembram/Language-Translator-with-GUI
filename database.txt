@@ -1,0 +1,72 @@
+After succesfull installation of MySQL
+
+In MySQL Terminal to:
+
+=> CREATE A USER:
+mysql> CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
+
+*** Please remember the password to avoid future complications with MySQL
+
+=> GRANT ALL THE PERMISSIONS:
+mysql> GRANT ALL PRIVILEGES ON translations.* TO 'your_username'@'localhost';
+
+mysql> FLUSH PRIVILEGES;
+
+------------------------------------------------------------------------------------------
+=> CREATE A DATABASE:
+mysql> create database Translator;
+
+mysql> use translator;
+
+------------------------------------------------------------------------------------------
+=> DESIGN THE TABLE:
+
+you might want to store the following information:
+
+Input Text: The text that the user entered for translation.
+Output Text: The translated text.
+Timestamp: The time when the translation was made, for tracking purposes.
+
+So, let's create a table with these columns:
+
+id: An auto-incrementing primary key for each translation entry.
+input_text: The input text entered by the user.
+output_text: The translated text.
+timestamp: The timestamp indicating when the translation was made.
+
+             -----------------------------------------------------------------------------
+=> CREATE THE TABLE:
+
+mysql> CREATE TABLE TRANSLATIONS(TID INT AUTO_INCREMENT PRIMARY KEY,
+    -> INPUT TEXT,
+    -> OUTPUT TEXT,
+    -> TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+             -----------------------------------------------------------------------------
+=> CONNECT PYTHON TO MYSQL:
+
+# Connect to MySQL database
+conn = mysql.connector.connect(
+    host="localhost",
+    user="user_name",		***your username
+    password="password",	***your password
+    database="Translator"
+)
+
+             -----------------------------------------------------------------------------
+=> INTERACTING WITH THE TABLE:
+Once connected, you can interact with the table by executing SQL commands through the MySQL Connector
+
+mysql> show databases;
+
+mysql> use translator;
+
+mysql> show tables;
+
+mysql> desc translations;	***basic table structure
+
+Try executing the program with some example.
+
+=> To view the input and outputs:
+mysql> select * from translations;
+
